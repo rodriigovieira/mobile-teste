@@ -67,6 +67,8 @@ const AllSearch = () => {
   const [apiData, setApiData] = React.useState([])
   const [dataLoading, setDataLoading] = React.useState(false)
 
+  console.trom(apiData)
+
   const handleSearch = (reset = false) => {
     page += 1
 
@@ -125,7 +127,7 @@ const AllSearch = () => {
             && (dataLoading ? (
               <ActivityIndicator size="large" color={colors.primaryColor} />
             ) : (
-              <TouchableOpacity onPress={handleSearch} style={styles.button}>
+              <TouchableOpacity onPress={() => handleSearch(false)} style={styles.button}>
                 <Text style={styles.buttonText}>Mostrar Mais</Text>
               </TouchableOpacity>
             ))}
