@@ -1,21 +1,29 @@
 import React from "react"
+import { createMaterialTopTabNavigator } from "react-navigation"
 
-import { View, Text, StyleSheet } from "react-native"
+import {
+  View, Text, StyleSheet, SafeAreaView
+} from "react-native"
 
-const styles = StyleSheet.create({
-  pageContainer: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center"
+import colors from "~/styles"
+
+import RandomSearch from "~/components/RandomSearch"
+import IdSearch from "~/components/IdSearch"
+import AllSearch from "~/components/AllSearch"
+
+const pages = createMaterialTopTabNavigator(
+  {
+    AllSearch,
+    RandomSearch,
+    IdSearch
+  },
+  {
+    initialRouteName: "AllSearch",
+    tabBarOptions: {
+      tabStyle: { backgroundColor: colors.primaryColor },
+      indicatorStyle: { backgroundColor: "red" }
+    }
   }
-})
-
-const pages = () => {
-  return (
-    <View style={styles.pageContainer}>
-      <Text>oi</Text>
-    </View>
-  )
-}
+)
 
 export default pages
